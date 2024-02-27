@@ -1,0 +1,12 @@
+{
+    "name": "toa-anakin/z308-rec-key",
+    "authors": [
+        {
+            "name": "Pham The Anh",
+            "email": "admin@phamtheanh.eu"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
