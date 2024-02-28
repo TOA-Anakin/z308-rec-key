@@ -16,7 +16,7 @@ $oracleDbService = $_ENV['ORACLE_DB_SERVICE'];
 try {
     $oracleDb = new AlephOracleDB($oracleDbHost, $oracleDbUser, $oracleDbPassword, $oracleDbService, $oracleDbPort);
     $oracleDb->connect();
-    $query = "SELECT COUNT(*) AS count FROM KNA50V.Z303 WHERE Z303_REC_KEY LIKE :key";
+    $query = "SELECT COUNT(*) AS count FROM KNA50.Z303 WHERE Z303_REC_KEY LIKE :key";
     $bindVars = [':key' => 'KNAV%'];
     $res = $oracleDb->executeQuery($query, $bindVars);
     var_dump($res);
@@ -31,13 +31,13 @@ $dbPassword = $_ENV['DB_PASSWORD'];
 $dbHost = $_ENV['DB_HOST'];
 $dbPort = $_ENV['DB_PORT'];
 $dbName = $_ENV['DB_NAME'];
-
+var_dump("mysql:host=$dbHost;port=$dbPort;dbname=$dbName");
 try {
     $connection = new PDO("mysql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = "SELECT COUNT(*) AS count FROM Z303 WHERE Z303_REC_KEY LIKE 'KNAV%'";
-    $result = $connection->query($query);
-    var_dump($result->fetch());
+    // $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // $query = "SELECT COUNT(*) AS count FROM Z303 WHERE Z303_REC_KEY LIKE 'KNAV%'";
+    // $result = $connection->query($query);
+    // var_dump($result->fetch());
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }

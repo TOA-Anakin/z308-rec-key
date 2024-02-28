@@ -25,5 +25,5 @@ Go to: http://localhost:8080/
 ```sh
 sudo docker stop <_container_id_>
 sudo docker remove <_container_id_>
-sudo docker rim <_image_id_>
+sudo docker rmi <_image_id_>
 ```
