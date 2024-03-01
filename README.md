@@ -6,24 +6,19 @@ In this demo: generation of values for `Z308_REC_KEY` based on `Z303` records.
 
 ## Dev with Docker
 
+### Containers config
+
+- `.docker/.env.nginx.local`
+
+### Oracle DB config
+
+- `.env` based on `.env.example`
+
 ### Building
 
 ```sh
-sudo docker build -t z308reckey .
+cd .docker
+docker compose up -d --build
 ```
 
-### Starting
-
-```sh
-sudo docker run -p 8080:8080 -v ./app:/app --name z308reckey-php z308reckey
-```
-
-Go to: http://localhost:8080/
-
-### Stopping, removing
-
-```sh
-sudo docker stop <_container_id_>
-sudo docker remove <_container_id_>
-sudo docker rmi <_image_id_>
-```
+Then, go to http://localhost:PORT_HOST/

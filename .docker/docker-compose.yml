@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+    nginx:
+        build:
+            context: ./nginx
+        env_file:
+            - .env
+        networks:
+            - z308reckey_app
+        ports:
+            - ${PORT_HOST}:80
+        volumes:
+            - ../:/var/www/app
+    php:
+        env_file:
+            - .env
+        build:
+            context: ./php
+            args:
+                UID: ${UID}
+                TIMEZONE: ${TIMEZONE}
+        networks:
+            - z308reckey_app
+        user: ${UID}:${UID}
+        volumes:
+            - ../:/var/www/app
+
+networks:
+    z308reckey_app:
