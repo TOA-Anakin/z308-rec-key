@@ -8,7 +8,7 @@ In this demo: generation of values for `Z308_REC_KEY` based on `Z303` records.
 
 ### Containers config
 
-- `.docker/.env.nginx.local`
+- `.docker/.env` based on `.docker/.env.example`
 
 ### Oracle DB config
 
